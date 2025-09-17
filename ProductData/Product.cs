@@ -45,6 +45,5 @@ namespace WedShop.ProductData
         {
             GlobalDiscount = percent / 100;
         }
-        ///ddsbdf
     }
 }

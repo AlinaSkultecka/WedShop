@@ -25,39 +25,37 @@ namespace WedShop
                 Console.WriteLine("[0] Exit");
 
                 int choice = int.Parse(Console.ReadLine());
-
                 switch (choice)
                 {
                     case 1:
-                        Console.WriteLine("You choose add a product");
+                        Console.WriteLine("You choose to add a product");
                         AddProductMenu(inventory);
                         break;
-
                     case 2:
-                        Console.WriteLine("You choose see list of the products");
+                        Console.WriteLine("You choose to see the list of the products");
                         ListProducts(inventory);
                         break;
-
                     case 3:
-                        Console.WriteLine("You choose see amount of products");
+                        Console.WriteLine("You choose to look at the amount of the products");
                         Console.WriteLine(Product.TotalCount);
                         break;
-
                     case 4:
-                        Console.WriteLine("You choose total value of products");
+                        Console.WriteLine("You choose to look at the total value of the products");
                         Console.WriteLine($" The total value of your products is {CalculateTotalValue(inventory)}");
                         break;
+
+
+
 
                     case 5:
                         Console.WriteLine("");
                         ChangeGlobalDiscount();
                         Console.WriteLine($" New global discount is {Product.GlobalDiscount * 100}%");
                         break;
-
                     case 0:
-                        Console.WriteLine("");
+                        Console.WriteLine("Exit the program");
+                        running = false;
                         break;
-
                     default:
                         Console.WriteLine("Invalid choice, please try again.");
                         break;
@@ -65,14 +63,13 @@ namespace WedShop
 
                 }
             }
-            static void AddProductMenu(List<Product> inventory)
+            static void AddProductMenu(List<Product> inventory)   // he has i here
             {
                 Console.WriteLine("[1] Book");
                 Console.WriteLine("[2] Electronics");
                 Console.WriteLine("[3] Clothing");
 
                 int choice = int.Parse(Console.ReadLine());
-
                 switch (choice)
                 {
                     case 1:
@@ -80,7 +77,7 @@ namespace WedShop
                         FillCommonFields(b);
                         Console.Write("Enter the author:");
                         b.Author = Console.ReadLine();
-                        inventory.Add(b);
+                        inventory.Add(b);    // he jas i here I have inventory
                         break;
                     case 2:
                         Electronics e = new Electronics();
@@ -97,13 +94,9 @@ namespace WedShop
                         inventory.Add(c);
                         break;
                     default:
-
                         Console.WriteLine("Invalid choice, please try again.");
                         break;
-
-
                 }
-
             }
 
             static void FillCommonFields(Product p)
@@ -140,8 +133,6 @@ namespace WedShop
                 double percent = double.Parse(Console.ReadLine());
                 Product.SetGlobalDiscountPercent(percent);
             }
-
-
-
         }
+    }
 }
